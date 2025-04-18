@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}YouTube Downloader - Download Videos and MP3s{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Download YouTube Videos in <span class="highlight">One Click</span></h1>
+            <p>Download videos in 480p, 720p, 1080p or extract audio as MP3 easily and quickly.</p>
+            <div class="url-input-container">
+                <input type="text" id="videoUrl" placeholder="Paste YouTube URL here...">
+                <button id="fetchBtn" class="btn primary-btn">
+                    <i class="fas fa-search"></i> Fetch Video
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="video-result" id="videoResult">
+    <div class="container">
+        <div class="video-info-container" id="videoInfoContainer" style="display: none;">
+            <div class="video-thumbnail">
+                <img id="videoThumbnail" src="" alt="Video Thumbnail">
+            </div>
+            <div class="video-details">
+                <h2 id="videoTitle">Video Title</h2>
+                <p id="videoDuration"></p>
+                <div class="format-selection">
+                    <h3>Select Download Format:</h3>
+                    <div class="format-options" id="formatOptions">
+                        <!-- Format options will be generated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="download-progress" id="downloadProgress" style="display: none;">
+            <h3>Downloading...</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p id="progressText">0%</p>
+            <p id="downloadStatus"></p>
+            <button id="downloadFileBtn" class="btn secondary-btn" style="display: none;">
+                <i class="fas fa-download"></i> Download File
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="how-to">
+    <div class="container">
+        <h2>How to Download YouTube Videos</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Step 1: Copy URL</h3>
+                    <p>Copy the YouTube video URL from your browser address bar</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-paste"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Step 2: Paste URL</h3>
+                    <p>Paste the URL into the input field above</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Step 3: Select Format</h3>
+                    <p>Choose your preferred video quality or MP3</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Step 4: Download</h3>
+                    <p>Click download and save the file to your device</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Key Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>Fast Downloads</h3>
+                <p>Optimized downloading process for speed and reliability</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>Multiple Formats</h3>
+                <p>Download in 480p, 720p, 1080p or MP3 audio</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Safe & Secure</h3>
+                <p>No ads, no tracking, no personal data stored</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Friendly</h3>
+                <p>Works perfectly on mobile devices and tablets</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
